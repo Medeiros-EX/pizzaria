@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio da Pizzaria - Forno e Massas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* Fundo branco */
+            color: #000; /* Texto preto */
+        }
+        header {
+            background: url('1000143757.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            background-color: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            padding: 10px 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: #008000; /* Verde */
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff; /* Texto branco */
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background-color: #FF0000; /* Vermelho */
+            color: #fff;
+        }
+        main {
+            padding: 20px;
+        }
+        h2 {
+            color: #008000; /* Verde */
+        }
+        .item {
+            background-color: #f0f0f0; /* Fundo cinza claro */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #000;
+        }
+        .item h3 {
+            margin-top: 0;
+        }
+        .item a {
+            color: #FF0000; /* Vermelho */
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .item a:hover {
+            text-decoration: underline;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Forno e Massas</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#pizzas-salgadas">Pizzas Salgadas</a></li>
+            <li><a href="#pizzas-doces">Pizzas Doces</a></li>
+            <li><a href="#sucos">Sucos</a></li>
+            <li><a href="#refrigerantes">Refrigerantes</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="pizzas-salgadas">
+            <h2>Pizzas Salgadas</h2>
+            <div class="item">
+                <h3>Margherita</h3>
+                <p>Mussarela, tomate, manjericão e azeite.</p>
+                <p>R$ 30,00</p>
+                <a class="pagar" data-item="margherita">Pagar</a>
+            </div>
+            <div class="item">
+                <h3>Calabresa</h3>
+                <p>Calabresa, cebola e azeitonas.</p>
+                <p>R$ 32,00</p>
+                <a class="pagar" data-item="calabresa">Pagar</a>
+            </div>
+            <div class="item">
+                <h3>Frango com Catupiry</h3>
+                <p>Frango desfiado, catupiry e milho.</p>
+                <p>R$ 35,00</p>
+                <a class="pagar" data-item="frango-catupiry">Pagar</a>
+            </div>
+            <!-- Adicione mais pizzas salgadas aqui -->
+        </section>
+        
+        <section id="pizzas-doces">
+            <h2>Pizzas Doces</h2>
+            <div class="item">
+                <h3>Chocolate</h3>
+                <p>Chocolate ao leite, chocolate granulado.</p>
+                <p>R$ 28,00</p>
+                <a class="pagar" data-item="chocolate">Pagar</a>
+            </div>
+            <div class="item">
+                <h3>Banana com Canela</h3>
+                <p>Banana, açúcar e canela.</p>
+                <p>R$ 27,00</p>
+                <a class="pagar" data-item="banana-canela">Pagar</a>
+            </div>
+            <div class="item">
+                <h3>Romeu e Julieta</h3>
+                <p>Goiabada e queijo cremoso.</p>
+                <p>R$ 30,00</p>
+                <a class="pagar" data-item="romeu-julieta">Pagar</a>
+            </div>
+            <!-- Adicione mais pizzas doces aqui -->
+        </section>
+        
+        <section id="sucos">
+            <h2>Sucos</h2>
+            <div class="item">
+                <h3>Suco de Laranja</h3>
+                <p>Natural, sem adição de açúcar.</p>
+                <p>R$ 8,00</p>
+                <a class="pagar" data-item="suco-laranja">Pagar</a>
+            </div>
+            <div class="item">
+                <h3>Suco de Morango</h3>
+                <p>Natural, sem adição de açúcar.</p>
+                <p>R$ 10,00</p>
+                <a class="pagar" data-item="suco-morango">Pagar</a>
+            </div>
+            <div class="item">
+                <h3>Suco de Manga</h3>
+                <p>Natural, sem adição de açúcar.</p>
+                <p>R$ 9,00</p>
+                <a class="pagar" data-item="suco-manga">Pagar</a>
+            </div>
+            <!-- Adicione mais sucos aqui -->
+        </section>
+        
+        <section id="refrigerantes">
+            <h2>Refrigerantes</h2>
+            <div class="item">
+                <h3>Coca-Cola</h3>
+                <p>Lata 350ml.</p>
+                <p>R$ 5,00</p>
+                <a class="pagar" data-item="coca-cola">Pagar</a>
+            </div>
+            <div class="item">
+                <h3>Guaraná Antarctica</h3>
+                <p>Lata 350ml.</p>
+                <p>R$ 5,00</p>
+                <a class="pagar" data-item="guarana-antarctica">Pagar</a>
+            </div>
+            <div class="item">
+                <h3>Sprite</h3>
+                <p>Lata 350ml.</p>
+                <p>R$ 5,00</p>
+                <a class="pagar" data-item="sprite">Pagar</a>
+            </div>
+            <!-- Adicione mais refrigerantes aqui -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Forno e Massas. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal de Pagamento -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirmar Pagamento</h2>
+            <p>Deseja confirmar o pagamento do item selecionado?</p>
+            <p>Nome do item: <span id="item-name"></span></p>
+            <p>Preço: R$ <span id="item-price"></span></p>
+            <button id="confirmar
